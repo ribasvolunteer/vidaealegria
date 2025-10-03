@@ -6,7 +6,7 @@
     <title>Apoie o Futuro das Crianças</title>
     <!-- Inclui Tailwind CSS via CDN para estilização rápida e responsiva -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -54,9 +54,16 @@
                 class="rounded-xl"
             ></iframe>
         </div>
-        
+
+        <!-- Seção de Missão Urgente (NOVO) -->
+        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-6 rounded-lg mb-10 text-left">
+             <h2 class="text-3xl font-black text-yellow-900 mb-4">⚠️ MISSÃO URGENTE!</h2>
+             <p class="text-lg font-semibold">O tempo está acabando! O projeto "Vida e Alegria" está em uma corrida contra o tempo para bater a meta de <strong>15.000 visualizações</strong> até as <strong>23h59 de hoje (02/10)</strong>.</p>
+             <p class="mt-2">Sua ajuda voluntária, assistindo e compartilhando, é o incentivo que elas precisam. Vamos mostrar a essas crianças que elas não estão sozinhas!</p>
+        </div>
+
         <!-- Seção de Textos Persuasivos -->
-        <div class="text-left max-w-3xl mx-auto mb-8 border-t pt-8">
+        <div class="text-left max-w-3xl mx-auto mb-8">
             <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">Por que Apoiar Nossas Crianças?</h2>
             <p class="text-gray-700 mb-4 text-lg">
                 Investir na infância é construir a base de uma sociedade mais justa e forte. Ao apoiar projetos dedicados à educação infantil, estamos semeando valores como respeito, cooperação e amor ao próximo no coração de quem irá moldar o amanhã.
@@ -67,7 +74,7 @@
         </div>
 
         <!-- Botões de Interação e Engajamento -->
-        <div class="mb-8">
+        <div class="mb-8 border-t pt-8">
             <h3 class="text-xl font-bold text-gray-700 mb-4">Demonstre seu apoio!</h3>
             <div id="reaction-buttons" class="flex items-center justify-center space-x-4">
                  <!-- Botão de Coração -->
