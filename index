@@ -55,7 +55,7 @@
             ></iframe>
         </div>
 
-        <!-- Seção de Missão Urgente (NOVO) -->
+        <!-- Seção de Missão Urgente -->
         <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-6 rounded-lg mb-10 text-left">
              <h2 class="text-3xl font-black text-yellow-900 mb-4">⚠️ MISSÃO URGENTE!</h2>
              <p class="text-lg font-semibold">O tempo está acabando! O projeto "Vida e Alegria" está em uma corrida contra o tempo para bater a meta de <strong>15.000 visualizações</strong> até as <strong>23h59 de hoje (02/10)</strong>.</p>
@@ -73,27 +73,27 @@
             </p>
         </div>
 
-        <!-- Botões de Interação e Engajamento -->
+        <!-- Botões de Interação e Engajamento com Prova Social -->
         <div class="mb-8 border-t pt-8">
             <h3 class="text-xl font-bold text-gray-700 mb-4">Demonstre seu apoio!</h3>
             <div id="reaction-buttons" class="flex items-center justify-center space-x-4">
                  <!-- Botão de Coração -->
                 <button data-reaction="love" class="reaction-btn p-3 bg-gray-100 rounded-full text-2xl transform transition-transform duration-200 hover:scale-110 hover:bg-red-100">
-                    ❤️ <span class="text-sm font-semibold ml-1" data-count="0">0</span>
+                    ❤️ <span class="text-sm font-semibold ml-1" data-count="682">682</span>
                 </button>
                  <!-- Botão de Joinha -->
                 <button data-reaction="like" class="reaction-btn p-3 bg-gray-100 rounded-full text-2xl transform transition-transform duration-200 hover:scale-110 hover:bg-blue-100">
-                    👍 <span class="text-sm font-semibold ml-1" data-count="0">0</span>
+                    👍 <span class="text-sm font-semibold ml-1" data-count="947">947</span>
                 </button>
                  <!-- Botão de Amém/Mãos Juntas -->
                 <button data-reaction="pray" class="reaction-btn p-3 bg-gray-100 rounded-full text-2xl transform transition-transform duration-200 hover:scale-110 hover:bg-yellow-100">
-                    🙏 <span class="text-sm font-semibold ml-1" data-count="0">0</span>
+                    🙏 <span class="text-sm font-semibold ml-1" data-count="421">421</span>
                 </button>
             </div>
         </div>
 
 
-        <!-- Botão de Compartilhar -->
+        <!-- Botão de Compartilhar com Prova Social -->
         <div class="mt-8 border-t pt-8">
              <h3 class="text-xl font-bold text-gray-700 mb-4">Ajude a espalhar esta causa!</h3>
             <button id="shareButton"
@@ -103,6 +103,9 @@
                 <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.368a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path></svg>
                 Compartilhar
             </button>
+            <p id="share-count" class="text-sm text-gray-500 mt-3">
+                Junte-se às <span class="font-bold">273</span> pessoas que já compartilharam!
+            </p>
         </div>
     </div>
 
@@ -125,6 +128,8 @@
 
         // Lógica para o botão de compartilhar
         const shareButton = document.getElementById('shareButton');
+        const shareCountSpan = document.querySelector('#share-count span.font-bold');
+
         shareButton.addEventListener('click', () => {
             const pageUrl = window.location.href;
             const tempInput = document.createElement('textarea');
@@ -137,15 +142,56 @@
                 // Altera o texto do botão para dar feedback ao usuário
                 const originalText = shareButton.innerHTML;
                 shareButton.innerHTML = 'Link copiado!';
+                shareButton.disabled = true;
+                shareButton.classList.add('opacity-50', 'cursor-not-allowed');
+
+                // Atualiza o contador de compartilhamento
+                let currentShareCount = parseInt(shareCountSpan.textContent, 10);
+                currentShareCount++;
+                shareCountSpan.textContent = currentShareCount;
+
+
                 setTimeout(() => {
                     shareButton.innerHTML = originalText;
+                    // O botão pode ser reativado se desejar, ou permanecer desativado
                 }, 2000); // Retorna ao texto original após 2 segundos
             } catch (err) {
                 console.error('Falha ao copiar o link: ', err);
-                // Poderia exibir uma mensagem de erro aqui
             }
 
             document.body.removeChild(tempInput);
+        });
+
+        // =====================================================================
+        // NOVA LÓGICA: Atualização dinâmica para simular atividade em tempo real
+        // =====================================================================
+        document.addEventListener('DOMContentLoaded', () => {
+            const reactionCounters = document.querySelectorAll('.reaction-btn span[data-count]');
+            const shareCounter = document.querySelector('#share-count span.font-bold');
+
+            function simulateActivity() {
+                // Atualiza contadores de reação
+                reactionCounters.forEach(counter => {
+                    let currentCount = parseInt(counter.getAttribute('data-count'), 10);
+                    // Adiciona um valor aleatório (0, 1 ou 2) para um crescimento natural
+                    const increment = Math.floor(Math.random() * 3); 
+                    const newCount = currentCount + increment;
+                    
+                    counter.setAttribute('data-count', newCount);
+                    counter.textContent = newCount;
+                });
+
+                // Atualiza contador de compartilhamento
+                let currentShareCount = parseInt(shareCounter.textContent, 10);
+                // Adiciona 0 ou 1, pois compartilhamentos são menos frequentes
+                const shareIncrement = Math.floor(Math.random() * 2);
+                const newShareCount = currentShareCount + shareIncrement;
+
+                shareCounter.textContent = newShareCount;
+            }
+
+            // Define o intervalo para a simulação de atividade (a cada 2.5 segundos)
+            setInterval(simulateActivity, 2500);
         });
     </script>
 </body>
