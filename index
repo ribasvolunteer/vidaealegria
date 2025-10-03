@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoie o Futuro das Crianças</title>
+    <!-- Inclui Tailwind CSS via CDN para estilização rápida e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Cor de fundo suave */
+        }
+        /* Estilos para o contêiner do vídeo para manter a proporção */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem; /* Cantos arredondados para o vídeo */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+    <div class="max-w-4xl w-full bg-white shadow-lg rounded-2xl p-6 md:p-10 text-center">
+        <!-- Título da página -->
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 leading-tight">
+            Um Investimento no Futuro do Brasil
+        </h1>
+        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            Cada criança merece um começo de vida com amor, valores e alegria. Veja como você pode fazer parte dessa transformação.
+        </p>
+
+        <!-- Hero Section com o vídeo do YouTube -->
+        <div class="video-container mb-10 shadow-xl">
+            <!--
+                O vídeo continua em autoplay e loop para manter a atenção do visitante.
+            -->
+            <iframe
+                src="https://www.youtube.com/embed/0Now_4cO-D4?autoplay=1&loop=1&playlist=0Now_4cO-D4&mute=1"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                title="Vídeo Principal do YouTube"
+                class="rounded-xl"
+            ></iframe>
+        </div>
+        
+        <!-- Seção de Textos Persuasivos -->
+        <div class="text-left max-w-3xl mx-auto mb-8 border-t pt-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">Por que Apoiar Nossas Crianças?</h2>
+            <p class="text-gray-700 mb-4 text-lg">
+                Investir na infância é construir a base de uma sociedade mais justa e forte. Ao apoiar projetos dedicados à educação infantil, estamos semeando valores como respeito, cooperação e amor ao próximo no coração de quem irá moldar o amanhã.
+            </p>
+            <p class="text-gray-700 text-lg">
+                O projeto <strong>Vida e Alegria</strong>, parte do <strong>Clube dos Aventureiros da Educação Adventista</strong>, é um exemplo brilhante disso. Ele oferece um ambiente seguro e estimulante onde crianças de 6 a 9 anos aprendem brincando, desenvolvem talentos e, o mais importante, fortalecem seu caráter. Incentivar esse tipo de educação é apostar em um Brasil com cidadãos mais conscientes e preparados.
+            </p>
+        </div>
+
+        <!-- Botões de Interação e Engajamento -->
+        <div class="mb-8">
+            <h3 class="text-xl font-bold text-gray-700 mb-4">Demonstre seu apoio!</h3>
+            <div id="reaction-buttons" class="flex items-center justify-center space-x-4">
+                 <!-- Botão de Coração -->
+                <button data-reaction="love" class="reaction-btn p-3 bg-gray-100 rounded-full text-2xl transform transition-transform duration-200 hover:scale-110 hover:bg-red-100">
+                    ❤️ <span class="text-sm font-semibold ml-1" data-count="0">0</span>
+                </button>
+                 <!-- Botão de Joinha -->
+                <button data-reaction="like" class="reaction-btn p-3 bg-gray-100 rounded-full text-2xl transform transition-transform duration-200 hover:scale-110 hover:bg-blue-100">
+                    👍 <span class="text-sm font-semibold ml-1" data-count="0">0</span>
+                </button>
+                 <!-- Botão de Amém/Mãos Juntas -->
+                <button data-reaction="pray" class="reaction-btn p-3 bg-gray-100 rounded-full text-2xl transform transition-transform duration-200 hover:scale-110 hover:bg-yellow-100">
+                    🙏 <span class="text-sm font-semibold ml-1" data-count="0">0</span>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Botão de Compartilhar -->
+        <div class="mt-8 border-t pt-8">
+             <h3 class="text-xl font-bold text-gray-700 mb-4">Ajude a espalhar esta causa!</h3>
+            <button id="shareButton"
+               class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-full
+                      text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                      transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 shadow-lg">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.368a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path></svg>
+                Compartilhar
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Lógica para os botões de reação
+        const reactionButtons = document.querySelectorAll('.reaction-btn');
+        reactionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const countSpan = button.querySelector('span[data-count]');
+                let currentCount = parseInt(countSpan.getAttribute('data-count'), 10);
+                currentCount++;
+                countSpan.setAttribute('data-count', currentCount);
+                countSpan.textContent = currentCount;
+
+                // Desativa o botão após o clique para evitar múltiplos votos
+                button.disabled = true;
+                button.classList.add('opacity-50', 'cursor-not-allowed');
+            });
+        });
+
+        // Lógica para o botão de compartilhar
+        const shareButton = document.getElementById('shareButton');
+        shareButton.addEventListener('click', () => {
+            const pageUrl = window.location.href;
+            const tempInput = document.createElement('textarea');
+            tempInput.value = pageUrl;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            
+            try {
+                document.execCommand('copy');
+                // Altera o texto do botão para dar feedback ao usuário
+                const originalText = shareButton.innerHTML;
+                shareButton.innerHTML = 'Link copiado!';
+                setTimeout(() => {
+                    shareButton.innerHTML = originalText;
+                }, 2000); // Retorna ao texto original após 2 segundos
+            } catch (err) {
+                console.error('Falha ao copiar o link: ', err);
+                // Poderia exibir uma mensagem de erro aqui
+            }
+
+            document.body.removeChild(tempInput);
+        });
+    </script>
+</body>
+</html>
+
